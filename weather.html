@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+
+  <!-- external stylesheet -->
+  <link rel="stylesheet" href="weather.css">
+
+  <!-- font awesome icons (CDN) -->
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <header>
+      <h1>Weather Dashboard</h1>
+
+      <!-- search + location + toggle controls -->
+      <div class="controls">
+        <input type="text" id="cityInput" placeholder="Enter city name" />
+
+        <button id="searchBtn">
+          <i class="fas fa-search"></i>
+        </button>
+
+        <button id="locationBtn">
+          <i class="fas fa-location-dot"></i>
+        </button>
+
+        <!-- temperature unit switch -->
+        <label class="switch">
+          <input type="checkbox" id="unitToggle">
+          <span class="slider"></span>
+        </label>
+
+        <!-- dark/light mode toggle -->
+        <button id="themeToggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+      <!-- error + loading messages -->
+      <p id="errorMessage"></p>
+      <p id="loading">Loading...</p>
+    </header>
+
+    <main>
+      <!-- current weather card -->
+      <section id="currentWeather" class="weather-section">
+        <h2 id="cityName"></h2>
+        <p id="currentDate"></p>
+
+        <img id="weatherIcon" alt="weather icon">
+
+        <h3 id="currentTemp"></h3>
+        <p id="weatherDescription"></p>
+
+        <div class="details">
+          <p>Feels like: <span id="feelsLike"></span></p>
+          <p>Humidity: <span id="humidity"></span></p>
+          <p>Wind: <span id="windSpeed"></span></p>
+          <p>Pressure: <span id="pressure"></span></p>
+          <p>Sunrise: <span id="sunrise"></span></p>
+          <p>Sunset: <span id="sunset"></span></p>
+        </div>
+
+        <button id="addFavoriteBtn">
+          <i class="fas fa-star"></i> Add to Favorites
+        </button>
+      </section>
+
+      <!-- forecast cards -->
+      <section class="weather-section">
+        <h2>5-Day Forecast</h2>
+        <div id="forecastCards" class="forecast-container"></div>
+      </section>
+
+      <!-- favorite cities -->
+      <section id="favoritesSection" class="weather-section">
+        <h2>Favorites</h2>
+        <div id="favoritesList"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- js file -->
+  <script src="script.js"></script>
+</body>
+</html>

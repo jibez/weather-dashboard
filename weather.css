@@ -1,0 +1,233 @@
+/* --- reset some defaults --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* main body styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #74ebd5, #9face6);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* dark theme mode */
+body.dark-theme {
+  background: linear-gradient(to right, #232526, #414345);
+  color: #eee;
+}
+
+/* container for the whole app */
+.app-container {
+  max-width: 800px;
+  width: 100%;
+  background: rgba(255,255,255,0.8);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+}
+
+body.dark-theme .app-container {
+  background: rgba(0,0,0,0.6);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* top controls (search, location, toggle) */
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.controls input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 150px;
+}
+
+.controls button {
+  background: #4a90e2;
+  border: none;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.controls button:hover {
+  background: #357ab7;
+}
+
+/* theme toggle button style */
+#themeToggle {
+  background: #ffb74d;
+}
+#themeToggle:hover {
+  background: #ffa726;
+}
+
+/* --- Celsius / Fahrenheit switch --- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #4a90e2;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* error + loading msg styles */
+#errorMessage {
+  color: #e53935;
+  margin-top: 5px;
+}
+#loading {
+  margin-top: 5px;
+  font-style: italic;
+  display: none;
+}
+
+/* --- weather sections --- */
+.weather-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 10px;
+  text-align: center;
+}
+
+body.dark-theme .weather-section {
+  background: rgba(255,255,255,0.1);
+}
+
+#currentWeather {
+  display: none;
+}
+#currentWeather img {
+  width: 100px;
+}
+
+/* details grid */
+.details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+  gap: 10px;
+  margin: 10px 0;
+}
+
+#addFavoriteBtn {
+  margin-top: 10px;
+  background: #ff7043;
+}
+#addFavoriteBtn:hover {
+  background: #f4511e;
+}
+
+/* forecast cards */
+.forecast-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap: 10px;
+}
+
+.forecast-card {
+  background: rgba(74,144,226,0.2);
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+.forecast-card:hover {
+  transform: translateY(-5px);
+}
+
+.forecast-icon {
+  width: 60px;
+}
+
+/* --- favorite cities --- */
+.favorite-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(74,144,226,0.2);
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.favorite-item:hover {
+  background: rgba(74,144,226,0.3);
+}
+
+.favorite-temp {
+  font-weight: bold;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #e53935;
+  cursor: pointer;
+  font-size: 1rem;
+}

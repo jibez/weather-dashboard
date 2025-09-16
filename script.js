@@ -1,6 +1,4 @@
-// weather dashboard JS
-// Author: student (humanified version)
-// using OpenWeatherMap API
+
 
 // API key
 const API_KEY = "e4d52c17b68fa31e62eeaf2bcdae5191";
